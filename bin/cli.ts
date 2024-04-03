@@ -3,7 +3,7 @@
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { print } from "../lib/print";
-import { getConfig } from "../lib/config";
+import { getConfig, setConfig } from "../lib/config";
 
 yargs(hideBin(process.argv))
   .command(
@@ -29,7 +29,9 @@ yargs(hideBin(process.argv))
       }
 
       if (yargs.action === "set") {
-        console.log(yargs.values);
+        const [key, value] = yargs.values.split("=");
+        setConfig(key as any, value);
+        print.success(`config updated: [${key}] [${value}]`);
         return;
       }
     },
