@@ -4,6 +4,7 @@ import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { print } from "../lib/print";
 import { getConfig, setConfig } from "../lib/config";
+import { splitFirstEqual } from "../lib/util.js";
 
 yargs(hideBin(process.argv))
   .command(
@@ -29,7 +30,7 @@ yargs(hideBin(process.argv))
       }
 
       if (yargs.action === "set") {
-        const [key, value] = yargs.values.split("=");
+        const [key, value] = splitFirstEqual(yargs.values);
         setConfig(key as any, value);
         print.success(`config updated: [${key}] [${value}]`);
         return;

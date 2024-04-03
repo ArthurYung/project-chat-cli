@@ -1,4 +1,10 @@
 {
   "extends": "@tsconfig/node18/tsconfig.json",
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "declaration": false,
+    "resolveJsonModule": true,
+    "moduleResolution": "node"
+  }
 }

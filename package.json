@@ -2,11 +2,12 @@
   "name": "project-chat-cli",
   "version": "1.0.0",
   "description": "A Project CLI With LLM Chat",
-  "main": "bin/cli.ts",
+  "exports": "bin/cli.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx bin/cli.ts"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ArthurYung/project-chat-cli.git"
