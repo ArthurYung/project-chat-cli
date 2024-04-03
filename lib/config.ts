@@ -38,10 +38,6 @@ function initConfig() {
     proxy: "",
   };
 
-  if (!existsSync(HOME_DIR)) {
-    mkdirSync(HOME_DIR, { recursive: true });
-  }
-
   writeConfig(config);
 }
 

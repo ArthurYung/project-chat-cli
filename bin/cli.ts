@@ -5,6 +5,7 @@ import { hideBin } from "yargs/helpers";
 import { print } from "../lib/print";
 import { getConfig, setConfig } from "../lib/config";
 import { splitFirstEqual } from "../lib/util.js";
+import { logger, viewLogs } from "../lib/log";
 
 yargs(hideBin(process.argv))
   .command(
@@ -37,4 +38,12 @@ yargs(hideBin(process.argv))
       }
     },
   )
+  .command("log", "show log", {}, viewLogs)
+  .command("start", "start chat", {}, (e) => {
+    logger.error("test");
+    logger.info("start chat");
+  })
+  .command("modify", "modify project config with chat", {}, (e) => {
+    console.log("modify chat");
+  })
   .parse();

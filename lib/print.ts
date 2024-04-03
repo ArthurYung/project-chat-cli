@@ -1,4 +1,5 @@
 import chalk from "chalk";
+import { logger } from "./log";
 
 function getPrefix() {
   return chalk.bold.bgMagentaBright(chalk.black("[CHAT CLI]")) + " ";
@@ -9,6 +10,7 @@ function getSuccess(message: string) {
 
 function success(message: string) {
   console.log(getPrefix() + getSuccess(message));
+  logger.info(message);
 }
 
 function table(data: any) {
