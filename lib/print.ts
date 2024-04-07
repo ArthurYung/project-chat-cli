@@ -8,8 +8,17 @@ function getSuccess(message: string) {
   return chalk.bold.green(message);
 }
 
+function getInfo(message: string) {
+  return chalk.bold.blue(message);
+}
+
 function success(message: string) {
   console.log(getPrefix() + getSuccess(message));
+  logger.info(message);
+}
+
+function info(message: string) {
+  console.log(getPrefix() + getInfo(message));
   logger.info(message);
 }
 
@@ -20,4 +29,5 @@ function table(data: any) {
 export const print = {
   table,
   success,
+  info,
 };
